@@ -12,10 +12,6 @@ workflows:
     jobs:
       - welcome/run
 
-
-
-
-
 machine:
   node:
     version: stable
