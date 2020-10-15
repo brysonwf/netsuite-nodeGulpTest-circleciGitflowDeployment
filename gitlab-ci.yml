@@ -9,6 +9,9 @@ general:
   branches:
     only:
       - SB1
+      - SB2
+      - SB3
+      - SB4
   artifacts:
     - "coverage" # relative to the user's home directory
     - $CIRCLE_TEST_REPORTS
@@ -25,4 +28,13 @@ test:
   override:
     - if [ $CIRCLE_BRANCH = 'SB1' ]; then
         ./node_modules/.bin/gulp sb1;
+      fi
+    - if [ $CIRCLE_BRANCH = 'SB2' ]; then
+        ./node_modules/.bin/gulp sb2;
+      fi
+    - if [ $CIRCLE_BRANCH = 'SB3' ]; then
+        ./node_modules/.bin/gulp sb3;
+      fi
+    - if [ $CIRCLE_BRANCH = 'SB4' ]; then
+        ./node_modules/.bin/gulp sb4;
       fi

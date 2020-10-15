@@ -1,0 +1,48 @@
+{
+  "name": "bryson-netsuite-ci",
+  "version": "0.0.1",
+  "description": "requirejs, circleCI, gulpfile.js, karma, mocha, chai, junit",
+  "main": "gulpfile.js",
+  "private": true,
+  "author": "Bryson Faggart",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "requirejs": "^2.1.20"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "fs": "0.0.1-security",
+    "graceful-fs": "^4.1.11",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-filter": "^5.0.1",
+    "gulp-gitmodified": "^1.1.1",
+    "gulp-intercept": "^0.1.0",
+    "gulp-open": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-run": "^1.7.1",
+    "gulp-standard": "^10.1.1",
+    "gulp-uglify": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "karma": "^1.7.1",
+    "karma-chai": "^0.1.0",
+    "karma-cli": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-mocha": "^0.2.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-requirejs": "^0.2.2",
+    "lodash": "^4.17.4",
+    "mocha": "^2.5.3",
+    "nscabinet": "^0.5.2",
+    "path": "^0.12.7",
+    "phantomjs": "^1.9.18",
+    "standard": "^10.0.3",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  }
+}
