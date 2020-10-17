@@ -28,11 +28,7 @@ dependencies:
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
-  # welcome:
-  #   # Run the welcome/run job in its own container
-  #   jobs:
-  #     - welcome/run?
-
-test:
-  override:
-      ./node_modules/.bin/gulp build-ci;
+  welcome:
+    # Run the welcome/run job in its own container
+    jobs:
+      - ./node_modules/.bin/gulp build-ci
