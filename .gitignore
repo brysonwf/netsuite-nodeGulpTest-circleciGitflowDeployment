@@ -47,5 +47,3 @@ coverage
 secret-env-cipher
 
 .history
-
-package-lock.json
