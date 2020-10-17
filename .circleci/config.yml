@@ -11,4 +11,4 @@ jobs:
     steps:
       - run: npm install
       - run: npm install -g gulp-cli
-      - run: ./node_modules/.bin/gulp build-ci
+      - run: gulp build-ci
