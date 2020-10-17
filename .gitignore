@@ -44,5 +44,8 @@ node_modules
 
 coverage
 /secret-env-plain
+secret-env-cipher
 
 .history
+
+package-lock.json
