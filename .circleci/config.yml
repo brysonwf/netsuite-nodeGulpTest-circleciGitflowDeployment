@@ -4,7 +4,6 @@ version: 2.1
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
-# Orchestrate or schedule a set of jobs
 
 machine:
   node:
@@ -12,7 +11,7 @@ machine:
   environment:
     JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
     JUNIT_REPORT_NAME: test-results.xml
-    
+
 general:
   artifacts:
     - "coverage" # relative to the user's home directory
@@ -26,11 +25,14 @@ dependencies:
   override:
     - npm install
 
-
+# Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
-  npm:
+  welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - npm install
-      - ./node_modules/.bin/gulp build-ci
+      - welcome/run
+
+test:
+  override:
+      ./node_modules/.bin/gulp build-ci;
