@@ -6,17 +6,10 @@ machine:
     JUNIT_REPORT_NAME: test-results.xml
 
 general:
-  branches:
-    only:
-      - SB1
   artifacts:
     - "coverage" # relative to the user's home directory
     - $CIRCLE_TEST_REPORTS
 
-dependencies:
-  override:
-    - npm install
-
-test:
-  override:
-      ./node_modules/.bin/gulp build-ci;
+jobs:
+    - run: npm install
+    - run: ./node_modules/.bin/gulp build-ci
