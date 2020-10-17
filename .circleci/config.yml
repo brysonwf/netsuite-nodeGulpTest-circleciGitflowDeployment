@@ -1,17 +1,13 @@
 version: 2
 
-machine:
-  node:
-    version: stable
-  environment:
-    JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
-    JUNIT_REPORT_NAME: test-results.xml
-
 jobs:
   build:
-    environment:
-      JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
-      JUNIT_REPORT_NAME: test-results.xml
+    machine:
+      node:
+        version: stable
+      environment:
+        JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
+        JUNIT_REPORT_NAME: test-results.xml
     steps:
       - run: npm install
       - run: mkdir ~/junit
