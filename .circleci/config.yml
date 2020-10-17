@@ -37,6 +37,4 @@ dependencies:
 
 test:
   override:
-    - if [ $CIRCLE_BRANCH = 'SB1' ]; then
-        ./node_modules/.bin/gulp sb1;
-      fi
+      ./node_modules/.bin/gulp build-ci;
