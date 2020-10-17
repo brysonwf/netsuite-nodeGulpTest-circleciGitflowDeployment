@@ -20,9 +20,6 @@ machine:
     JUNIT_REPORT_NAME: test-results.xml
 
 general:
-  branches:
-    only:
-      - SB1
   artifacts:
     - "coverage" # relative to the user's home directory
     - $CIRCLE_TEST_REPORTS
