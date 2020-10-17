@@ -6,6 +6,9 @@ machine:
     JUNIT_REPORT_NAME: test-results.xml
 
 general:
+  branches:
+    only:
+      - SB1
   artifacts:
     - "coverage" # relative to the user's home directory
     - $CIRCLE_TEST_REPORTS
@@ -13,15 +16,6 @@ general:
 dependencies:
   override:
     - npm install
-
-# Orchestrate or schedule a set of jobs
-workflows:
-  # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
-    jobs:
-      - run: npm install
-      - run: ./node_modules/.bin/gulp build-ci
 
 test:
   override:
