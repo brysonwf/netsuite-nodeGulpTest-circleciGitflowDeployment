@@ -41,7 +41,7 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage', 'junit'],
 
     junitReporter: {
-      outputDir: process.env.JUNIT_REPORT_PATH+'junit/',
+      outputDir: process.env.JUNIT_REPORT_PATH,
       outputFile: process.env.JUNIT_REPORT_NAME,
       useBrowserName: false
     },

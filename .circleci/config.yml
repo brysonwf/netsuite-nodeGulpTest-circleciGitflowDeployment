@@ -5,30 +5,17 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 
-machine:
-  node:
-    version: stable
-  environment:
-    JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
-    JUNIT_REPORT_NAME: test-results.xml
-
-general:
-  artifacts:
-    - "coverage" # relative to the user's home directory
-    - $CIRCLE_TEST_REPORTS
-
-dependencies:
-  pre:
-    # update locally with:
-    # openssl aes-256-cbc -e -in secret-env-plain -out secret-env-cipher -k $KEY
-    - openssl aes-256-cbc -d -in secret-env-cipher -k $key >> ~/.circlerc
-  override:
-    - npm install
-
-# Orchestrate or schedule a set of jobs
-workflows:
-  # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
-    jobs:
-      - ./node_modules/.bin/gulp build-ci
+steps:
+  - checkout
+  - run: npm install
+  - run: mkdir ~/junit
+  - run:
+      command: ./node_modules/.bin/gulp build-ci
+      environment:
+        JUNIT_REPORT_PATH: ./junit/
+        JUNIT_REPORT_NAME: test-results.xml
+      when: always  
+  - store_test_results:
+      path: ./junit
+  - store_artifacts:
+      path: ./junit
