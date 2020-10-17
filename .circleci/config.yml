@@ -1,15 +1,14 @@
-machine:
-  node:
-    version: stable
-  environment:
-    JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
-    JUNIT_REPORT_NAME: test-results.xml
-
-general:
-  artifacts:
-    - "coverage" # relative to the user's home directory
-    - $CIRCLE_TEST_REPORTS
-
+version: 2
 jobs:
-    - run: npm install
-    - run: ./node_modules/.bin/gulp build-ci
+  build:
+    environment:
+      JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
+      JUNIT_REPORT_NAME: test-results.xml
+    steps:
+      - run: npm install
+      - run: mkdir ~/junit
+      - run: ./node_modules/.bin/gulp build-ci
+      - store_test_results:
+        path: ./junit
+      - store_artifacts:
+        path: ./junit
