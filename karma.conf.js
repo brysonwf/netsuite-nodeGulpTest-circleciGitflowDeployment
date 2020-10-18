@@ -1,6 +1,5 @@
 // Karma configuration
 // Generated on Sat Aug 15 2015 04:44:13 GMT+0000 (UTC)
-console.log(`Version: ${process.version}`);
 module.exports = function(config) {
   config.set({
 

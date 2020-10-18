@@ -1,7 +1,7 @@
 jobs:
   buildTheStuff:
     environment:
-      JUNIT_REPORT_PATH: ~/junit/
+      JUNIT_REPORT_PATH: ./junit/
       JUNIT_REPORT_NAME: test-results.xml
     docker:
       - image: cimg/node:current-browsers
@@ -16,7 +16,7 @@ jobs:
       - run:
           command: ~/project/node_modules/.bin/karma start ./karma.conf.js
           environment:
-            JUNIT_REPORT_PATH: ~/junit/
+            JUNIT_REPORT_PATH: ./junit/
             JUNIT_REPORT_NAME: test-results.xml
           when: always  
       - store_test_results:
