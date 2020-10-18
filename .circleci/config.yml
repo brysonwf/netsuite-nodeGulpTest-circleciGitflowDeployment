@@ -1,7 +1,7 @@
 jobs:
   buildTheStuff:
-    machine: 
-      node: true
+    docker:
+      - image: cimg/node:current-browsers
     steps:
       - checkout
       - node/install-packages:
