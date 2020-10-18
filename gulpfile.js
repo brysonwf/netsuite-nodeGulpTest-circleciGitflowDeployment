@@ -72,25 +72,25 @@ gulp.task('buildFunction-ci', function () {
     // .pipe(uglify())
     // .pipe(rename(folder + '.js'))
     // .pipe(gulp.dest(scriptsPath + '/' + folder + '/'))
-    .pipe(intercept(function (file) {
-      exec('git diff --no-commit-id --name-only -r ' + diffHash + ' ' + scriptsPath + '/' + folder + '/', function (err, stdout, stderr) {
-        if (stdout) {
-          console.log('Trigger: ' + stdout);
-          return gulp.src(stdout)
-          // .pipe(nscabinet({
-          //   email: 'testcircleci@test.com',
-          //   password: process.env.SB1_PASSWORD,
-          //   account: '',
-          //   realm: 'sandbox.netsuite.com',
-          //   role: 3,
-          //   rootPath: '/SuiteScripts',
-          //   script: ,
-          //   deployment: 1
-          // }));
-        } else {
-          return null;
-        }
-      });
+    // .pipe(intercept(function (file) {
+    //   exec('git diff --no-commit-id --name-only -r ' + diffHash + ' ' + scriptsPath + '/' + folder + '/', function (err, stdout, stderr) {
+    //     if (stdout) {
+    //       console.log('Trigger: ' + stdout);
+    //       return gulp.src(stdout)
+    //       // .pipe(nscabinet({
+    //       //   email: 'testcircleci@test.com',
+    //       //   password: process.env.SB1_PASSWORD,
+    //       //   account: '',
+    //       //   realm: 'sandbox.netsuite.com',
+    //       //   role: 3,
+    //       //   rootPath: '/SuiteScripts',
+    //       //   script: ,
+    //       //   deployment: 1
+    //       // }));
+    //     } else {
+    //       return null;
+    //     }
+    //   });
     }));
   });
 });
