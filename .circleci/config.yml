@@ -10,6 +10,10 @@ jobs:
         JUNIT_REPORT_NAME: test-results.xml
     steps:
       - run: npm install
-      - run: npm install -g gulp
-      - run: npm install -g gulp-cli
-      - run: ../gulp build-ci
+      - save_cache:
+        name: cache
+        key: cache
+        paths:
+          - ~/
+      - run: ls
+      - run: ./node_modules/.bin/gulp build-ci
