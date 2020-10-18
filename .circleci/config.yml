@@ -1,15 +1,40 @@
-version: 2
+machine:
+  node:
+    version: stable
+  environment:
+    JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
+    JUNIT_REPORT_NAME: test-results.xml
 
-jobs:
-  build:
-    machine:
-      node:
-        version: stable
-      environment:
-        JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
-        JUNIT_REPORT_NAME: test-results.xml
-    steps:
-      - run: npm install
-      - run: npm install -g gulp
-      - run: npm link gulp
-      - run: gulp ~/build-ci
+general:
+  branches:
+    only:
+      - SB1
+      - SB2
+      - SB3
+      - SB4
+  artifacts:
+    - "coverage" # relative to the user's home directory
+    - $CIRCLE_TEST_REPORTS
+
+dependencies:
+  pre:
+    # update locally with:
+    # openssl aes-256-cbc -e -in secret-env-plain -out secret-env-cipher -k $KEY
+    - openssl aes-256-cbc -d -in secret-env-cipher -k $key >> ~/.circlerc
+  override:
+    - npm install
+
+test:
+  override:
+    - if [ $CIRCLE_BRANCH = 'SB1' ]; then
+        ./node_modules/.bin/gulp sb1;
+      fi
+    - if [ $CIRCLE_BRANCH = 'SB2' ]; then
+        ./node_modules/.bin/gulp sb2;
+      fi
+    - if [ $CIRCLE_BRANCH = 'SB3' ]; then
+        ./node_modules/.bin/gulp sb3;
+      fi
+    - if [ $CIRCLE_BRANCH = 'SB4' ]; then
+        ./node_modules/.bin/gulp sb4;
+      fi
