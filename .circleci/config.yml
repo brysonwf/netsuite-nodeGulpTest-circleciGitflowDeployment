@@ -2,11 +2,8 @@ version: 2
 
 jobs:
   build:
-    machine:
-      node: circleci/node
-      environment:
-        JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
-        JUNIT_REPORT_NAME: test-results.xml
+    docker:
+      - image: cimg/node:current
     steps:
       - checkout
       - run: npm install
