@@ -91,7 +91,7 @@ gulp.task('buildFunction-ci', function () {
     //       return null;
     //     }
     //   });
-    }));
+    // }));
   });
 });
 
