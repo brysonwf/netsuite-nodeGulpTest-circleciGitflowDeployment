@@ -54,7 +54,7 @@ var scriptsPath = '.';
 var folders = getFolders(scriptsPath);
 
 //stage  = lint all src files, break on error
-gulp.task('buildFunction-ci', function () {
+gulp.task('buildFunction-ci', done => {
   var diffUrl = process.env.CIRCLE_COMPARE_URL.split('/');
   var diffUrlLength = diffUrl.length;
   var diffHash = diffUrl[diffUrlLength - 1]
@@ -95,7 +95,7 @@ gulp.task('buildFunction-ci', function () {
   });
 });
 
-gulp.task('buildFunction-local', function () {
+gulp.task('buildFunction-local', done => {
   return folders.map(function (folder) {
     return gulp.src(scriptsPath + '/' + folder + '/src/*.js')
     .pipe(plumber())
@@ -110,12 +110,12 @@ gulp.task('buildFunction-local', function () {
   });
 });
 
-gulp.task('coverage', gulp.series('karma', function () {
+gulp.task('coverage', gulp.series('karma', done => {
   return gulp.src('./undefinedcoverage/report-html/index.html')
   .pipe(open());
 }));
 
-gulp.task('default', function () {
+gulp.task('default', done => {
   gulp.watch('./**/src/*.js', gulp.series('local'));
 });
 
