@@ -2,13 +2,17 @@ version: 2
 
 jobs:
   build:
-    docker:
-      - image: cimg/node:current
+    machine:
+      node:
+        version: current
+      environment:
+        JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
+        JUNIT_REPORT_NAME: test-results.xml
     steps:
       - checkout
       - run: npm install
-      # - run: npm link gulp
-      # - run: npm link karma
+      - run: npm link gulp
+      - run: npm link karma
       - run: mkdir ~/junit
       - run:
           command: gulp build-ci
