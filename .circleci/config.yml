@@ -9,22 +9,6 @@ jobs:
         JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
         JUNIT_REPORT_NAME: test-results.xml
     steps:
-      - save_cache:
-          paths:
-            - ~/usr/local/lib/node_modules  # location depends on npm version
-          key: node_modules
       - run: npm install
-      - run: ls
-      - run: cd ../
-      - run: ls
-      - run: cd ../
-      - run: ls
-      - run: cd ../
-      - run: ls
-      - run: cd ../
-      - run: ls
-      - run: cd ../
-      - run: ls
-      - run: cd ../
-      - run: ls
-      - run: cd ../
+      - run: npm install -g gulp
+      - run: gulp build-ci
