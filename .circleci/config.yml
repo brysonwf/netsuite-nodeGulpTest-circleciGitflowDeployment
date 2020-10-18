@@ -15,6 +15,12 @@ jobs:
       - run: mkdir ~/junit
       - run:
           command: gulp build-ci
+      - run:
+          command: karma start ./karma.conf.js
+          environment:
+            JUNIT_REPORT_PATH: ./junit/
+            JUNIT_REPORT_NAME: test-results.xml
+          when: always  
       - store_test_results:
           path: ~/junit
       - store_artifacts:
