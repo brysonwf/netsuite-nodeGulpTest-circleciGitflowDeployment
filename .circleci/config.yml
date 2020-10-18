@@ -14,4 +14,17 @@ jobs:
             - ~/usr/local/lib/node_modules  # location depends on npm version
           key: node_modules
       - run: npm install
-      - run: /home/circleci/project/node_modules/.bin/gulp build-ci
+      - run: ls
+      - run: cd ../
+      - run: ls
+      - run: cd ../
+      - run: ls
+      - run: cd ../
+      - run: ls
+      - run: cd ../
+      - run: ls
+      - run: cd ../
+      - run: ls
+      - run: cd ../
+      - run: ls
+      - run: cd ../
