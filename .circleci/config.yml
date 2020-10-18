@@ -1,6 +1,6 @@
 jobs:
   buildTheStuff:
-    executor: node/default
+    machine: node/default
     steps:
       - checkout
       - node/install-packages:
