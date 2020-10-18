@@ -54,7 +54,7 @@ var scriptsPath = '.';
 var folders = getFolders(scriptsPath);
 
 //stage  = lint all src files, break on error
-gulp.task('build-ci', function () {
+gulp.task('build-ci', function (done) {
   var diffUrl = process.env.CIRCLE_COMPARE_URL.split('/');
   var diffUrlLength = diffUrl.length;
   var diffHash = diffUrl[diffUrlLength - 1]
@@ -90,8 +90,9 @@ gulp.task('build-ci', function () {
     //     } else {
     //       return null;
     //     }
-    //   });
-    // }));
+    //   })
+    // }))
+    .pipe(done())
   });
 });
 
