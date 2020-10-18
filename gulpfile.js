@@ -73,6 +73,7 @@ gulp.task('buildFunction-ci', function () {
     // .pipe(rename(folder + '.js'))
     // .pipe(gulp.dest(scriptsPath + '/' + folder + '/'))
     .pipe(intercept(function (file) {
+      done();
       exec('git diff --no-commit-id --name-only -r ' + diffHash + ' ' + scriptsPath + '/' + folder + '/', function (err, stdout, stderr) {
         if (stdout) {
           console.log('Trigger: ' + stdout);
@@ -88,7 +89,6 @@ gulp.task('buildFunction-ci', function () {
           //   deployment: 1
           // }));
         } else {
-          done();
           return null;
         }
       });
