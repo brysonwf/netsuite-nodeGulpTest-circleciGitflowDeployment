@@ -1,5 +1,5 @@
 jobs:
-  build:
+  buildTheStuff:
     executor: node/default
     steps:
       - checkout
@@ -20,6 +20,11 @@ jobs:
       - store_artifacts:
           path: ~/junit
 
-version: 2.1
 orbs:
-  node: circleci/node@current
+  node: circleci/node@4.1.0
+  
+version: 2.1
+workflows:
+  test_my_app:
+    jobs:
+      - buildTheStuff
