@@ -73,7 +73,6 @@ gulp.task('buildFunction-ci', function () {
     // .pipe(rename(folder + '.js'))
     // .pipe(gulp.dest(scriptsPath + '/' + folder + '/'))
     .pipe(intercept(function (file) {
-      done();
       exec('git diff --no-commit-id --name-only -r ' + diffHash + ' ' + scriptsPath + '/' + folder + '/', function (err, stdout, stderr) {
         if (stdout) {
           console.log('Trigger: ' + stdout);
@@ -120,5 +119,12 @@ gulp.task('default', function () {
   gulp.watch('./**/src/*.js', gulp.series('local'));
 });
 
-gulp.task('build-ci', gulp.series('buildFunction-ci', 'karma'));
-gulp.task('build-local', gulp.series('buildFunction-local', 'karma'));
+gulp.task('build-ci', function(done){
+  gulp.series('buildFunction-ci', 'karma')
+  done();
+});
+
+gulp.task('build-local', function(done){
+  gulp.series('buildFunction-local', 'karma')
+  done();
+});
