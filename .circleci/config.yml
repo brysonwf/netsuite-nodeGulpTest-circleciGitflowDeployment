@@ -3,8 +3,7 @@ version: 2
 jobs:
   build:
     machine:
-      node:
-        version: stable
+      node: circleci/node@2.0.2
       environment:
         JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
         JUNIT_REPORT_NAME: test-results.xml
