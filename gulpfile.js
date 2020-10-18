@@ -54,7 +54,7 @@ var scriptsPath = '.';
 var folders = getFolders(scriptsPath);
 
 //stage  = lint all src files, break on error
-gulp.task('build-ci', async function () {
+gulp.task('build-ci', function () {
   var diffUrl = process.env.CIRCLE_COMPARE_URL.split('/');
   var diffUrlLength = diffUrl.length;
   var diffHash = diffUrl[diffUrlLength - 1]
@@ -90,7 +90,7 @@ gulp.task('build-ci', async function () {
         } else {
           return null;
         }
-      })
+      });
     }));
   });
 });
@@ -118,3 +118,5 @@ gulp.task('coverage', gulp.series('karma', function () {
 gulp.task('default', function () {
   gulp.watch('./**/src/*.js', gulp.series('local'));
 });
+
+gulp.task('local', gulp.series('build-local', 'karma'));
