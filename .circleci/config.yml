@@ -10,4 +10,5 @@ jobs:
         JUNIT_REPORT_NAME: test-results.xml
     steps:
       - run: npm install
+      - run: cd ./
       - run: ls
