@@ -1,6 +1,6 @@
 jobs:
   build:
-    executor: node/current
+    executor: node/default
     steps:
       - checkout
       - node/install-packages:
