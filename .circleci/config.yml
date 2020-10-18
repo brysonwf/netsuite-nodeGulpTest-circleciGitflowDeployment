@@ -1,8 +1,5 @@
 jobs:
   buildTheStuff:
-    environment:
-      JUNIT_REPORT_PATH: ./junit/
-      JUNIT_REPORT_NAME: test-results.xml
     docker:
       - image: cimg/node:current-browsers
     steps:
