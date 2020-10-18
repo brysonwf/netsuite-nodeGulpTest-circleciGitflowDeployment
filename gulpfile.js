@@ -110,12 +110,12 @@ gulp.task('buildFunction-local', async function () {
   });
 });
 
-gulp.task('coverage', gulp.series('karma', async function () {
+gulp.task('coverage', gulp.series('karma', function () {
   return gulp.src('./undefinedcoverage/report-html/index.html')
   .pipe(open());
 }));
 
-gulp.task('default', async function () {
+gulp.task('default', function () {
   gulp.watch('./**/src/*.js', gulp.series('local'));
 });
 
