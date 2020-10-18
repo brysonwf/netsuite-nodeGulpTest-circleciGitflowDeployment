@@ -12,4 +12,4 @@ jobs:
       - run: npm install
       - run: npm install -g gulp
       - run: npm link gulp
-      - run: gulp ../build-ci
+      - run: gulp ~/build-ci
