@@ -10,6 +10,4 @@ jobs:
         JUNIT_REPORT_NAME: test-results.xml
     steps:
       - run: npm install
-      - run: npm install -g gulp
-      - run: npm install -g gulp-cli
-      - run: gulp build-ci
+      - run: ../node_modules/.bin/gulp build-ci
