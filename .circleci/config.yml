@@ -1,18 +1,11 @@
-version: 2
-
 jobs:
   build:
-    machine:
-      node:
-        version: 13.11.0
-      environment:
-        JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
-        JUNIT_REPORT_NAME: test-results.xml
+    executor: node/current
     steps:
       - checkout
-      - run: npm install
-      - run: npm link gulp
-      - run: npm link karma
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm install
       - run: mkdir ~/junit
       - run:
           command: gulp build-ci
@@ -26,3 +19,7 @@ jobs:
           path: ~/junit
       - store_artifacts:
           path: ~/junit
+
+version: 2.1
+orbs:
+  node: circleci/node@current
