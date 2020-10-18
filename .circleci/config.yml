@@ -7,8 +7,8 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm link gulp
-      - run: npm link karma
+      # - run: npm link gulp
+      # - run: npm link karma
       - run: mkdir ~/junit
       - run:
           command: gulp build-ci
