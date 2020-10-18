@@ -9,16 +9,5 @@ jobs:
         JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
         JUNIT_REPORT_NAME: test-results.xml
     steps:
-      - restore_cache:
-          keys:
-            # when lock file changes, use increasingly general patterns to restore cache
-            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - node-v1-{{ .Branch }}-
-            - node-v1-
-      - save_cache:
-          paths:
-            - ~/usr/local/lib/node_modules  # location depends on npm version
-          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-
       - run: npm install
-      - run: ~/usr/local/lib/node_modules/.bin/gulp build-ci
+      - run: ./home/circleci/project/node_modules/.bin/gulp build-ci
