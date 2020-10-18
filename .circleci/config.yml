@@ -4,7 +4,7 @@ jobs:
   build:
     machine:
       node:
-        version: current
+        version: 13.11.0
       environment:
         JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
         JUNIT_REPORT_NAME: test-results.xml
