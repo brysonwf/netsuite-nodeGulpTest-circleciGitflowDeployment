@@ -119,12 +119,5 @@ gulp.task('default', function () {
   gulp.watch('./**/src/*.js', gulp.series('local'));
 });
 
-gulp.task('build-ci', function(done){
-  gulp.series('buildFunction-ci', 'karma')
-  done();
-});
-
-gulp.task('build-local', function(done){
-  gulp.series('buildFunction-local', 'karma')
-  done();
-});
+gulp.task('build-ci', gulp.series('buildFunction-ci', 'karma'));
+gulp.task('build-local', gulp.series('buildFunction-local', 'karma'));
