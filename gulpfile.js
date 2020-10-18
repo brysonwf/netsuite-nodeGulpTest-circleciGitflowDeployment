@@ -95,7 +95,7 @@ gulp.task('buildFunction-ci', function () {
   });
 });
 
-gulp.task('buildFunction-local', async function () {
+gulp.task('buildFunction-local', function () {
   return folders.map(function (folder) {
     return gulp.src(scriptsPath + '/' + folder + '/src/*.js')
     .pipe(plumber())
