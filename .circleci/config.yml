@@ -9,9 +9,12 @@ jobs:
         JUNIT_REPORT_PATH: $CIRCLE_TEST_REPORTS/
         JUNIT_REPORT_NAME: test-results.xml
     steps:
+      - checkout
       - run: npm install
-      - run: npm install -g gulp
-      - run: npm install -g gulp-cli
-      - run: npm link gulp
+      - run: mkdir ~/junit
       - run:
           command: gulp build-ci
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit
