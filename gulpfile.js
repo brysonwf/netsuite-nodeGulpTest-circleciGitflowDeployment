@@ -50,7 +50,7 @@ function getFiles(dir, files_) {
   return files_;
 }
 
-var scriptsPath = '~/project/';
+var scriptsPath = process.env.CIRCLE_WORKING_DIRECTORY;
 var folders = getFolders(scriptsPath);
 
 //stage  = lint all src files, break on error
