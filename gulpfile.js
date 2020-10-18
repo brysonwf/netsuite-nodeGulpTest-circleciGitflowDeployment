@@ -50,7 +50,7 @@ function getFiles(dir, files_) {
   return files_;
 }
 
-var scriptsPath = '.';
+var scriptsPath = '~/project/';
 var folders = getFolders(scriptsPath);
 
 //stage  = lint all src files, break on error
