@@ -17,9 +17,9 @@ jobs:
             JUNIT_REPORT_NAME: test-results.xml
           when: always  
       - store_test_results:
-          path: ~/junit
+          path: ./junit
       - store_artifacts:
-          path: ~/junit
+          path: ./junit
 
 orbs:
   node: circleci/node@4.1.0
