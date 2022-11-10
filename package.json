@@ -34,7 +34,7 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-requirejs": "^0.2.2",
     "lodash": "^4.17.4",
-    "mocha": "^2.5.3",
+    "mocha": "^10.1.0",
     "nscabinet": "^0.5.2",
     "path": "^0.12.7",
     "phantomjs": "^1.9.18",
